@@ -1,3 +1,23 @@
+const body = document.querySelector("body");
+const display = document.createElement("div");
+
+display.classList.toggle("display")
+
+body.appendChild(display);
+
+for (let i = 1; i <= 5; i++ ) {
+    const calRows = document.createElement("div");
+    body.appendChild(calRows);
+    for (let j = 1; j <= 4; j++) {
+        const calColumns = document.createElement("div");
+        const btns = document.createElement("button");
+        calRows.appendChild(calColumns);
+        calColumns.appendChild(btns);
+    }
+};
+
+
+
 let num1;
 let num2;
 let operator;
@@ -32,3 +52,4 @@ function operate(number1, number2, operation) {
         return divide(number1, number2);
     }
 };
+

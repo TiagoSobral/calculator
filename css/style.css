@@ -31,7 +31,12 @@ button {
     border-width: 0px;
 }
 
-#operator > button {
+#operator1 > button,
+#operator2 > button,
+#operator3 > button,
+#operator4 > button,
+#operator5 > button,
+#operator6 > button {
     background-color: #FF9500;
 }
 

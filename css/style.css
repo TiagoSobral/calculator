@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000000;
+}
+
+.display {
+    width: 265px;
+    height: 80px;
+    border: solid, rgb(255, 255, 255);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#number, #operator, #ac, #float{
+    display: flex;
+    margin: 3px;
+    width: 225;
+    height: 50;
+}
+
+.btnRow1, .btnRow2, .btnRow3, .btnRow4, .btnRow5 {
+    display: flex;
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    border-width: 0px;
+}
+
+#operator > button {
+    background-color: #FF9500;
+}
+
+#float > button, #number > button {
+    background-color: #505050;
+}
+
+#ac > button {
+    background-color: #D4D4D2;
+}
+
+
+
+

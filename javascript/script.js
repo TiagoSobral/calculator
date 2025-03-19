@@ -16,9 +16,30 @@ for (let i = 1; i <= 5; i++ ) {
         calColumns.classList.toggle(`btnColumn${j}`)
         calRows.appendChild(calColumns);
         calColumns.appendChild(btns);
-    }
-};
 
+        if (j === 4) {
+            calColumns.setAttribute("id", "operator");
+        };
+        if (i > 1 && i < 5 && j < 4) {
+            calColumns.setAttribute("id", "number");
+        };
+        if (i === 1 && j < 4) {
+            calColumns.setAttribute("id", "ac");
+        };
+
+        if (i === 5) {
+            if (j === 1) {
+                calColumns.setAttribute("id", "number");
+            }
+            else if (j === 2) {
+                calColumns.setAttribute("id", "float");
+            }
+            else if (j === 3) {
+                calColumns.setAttribute("id", "operator"); 
+            }
+        };
+    };
+};
 
 
 let num1;

@@ -13,14 +13,21 @@ body{
     margin-bottom: 10px;
 }
 
-#number, #operator, #ac, #float{
+.number, 
+.operator, 
+.ac, 
+.float{
     display: flex;
     margin: 3px;
     width: 225;
     height: 50;
 }
 
-.btnRow1, .btnRow2, .btnRow3, .btnRow4, .btnRow5 {
+.btn-row-1, 
+.btn-row-2, 
+.btn-row-3, 
+.btn-row-4, 
+.btn-row-5 {
     display: flex;
 }
 
@@ -31,21 +38,23 @@ button {
     border-width: 0px;
 }
 
-#operator1 > button,
-#operator2 > button,
-#operator3 > button,
-#operator4 > button,
-#operator5 > button,
-#operator6 > button {
+.operator > button
+{
     background-color: #FF9500;
 }
 
-#float > button, #number > button {
+.float > button, 
+.number > button {
     background-color: #505050;
 }
 
-#ac > button {
+.ac > button {
+    width: 190px;
     background-color: #D4D4D2;
+}
+
+.btn-row-5 > .operator > button {
+    width: 130px;
 }
 
 

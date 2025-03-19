@@ -8,40 +8,44 @@ body.appendChild(display);
 for (let i = 1; i <= 5; i++ ) {
     const calRows = document.createElement("div");
     body.appendChild(calRows);
-    calRows.classList.toggle(`btnRow${i}`)
+    calRows.classList.toggle(`btn-row-${i}`)
 
     for (let j = 1; j <= 4; j++) {
         const calColumns = document.createElement("div");
         const btns = document.createElement("button");
-        calColumns.classList.toggle(`btnColumn${j}`)
         calRows.appendChild(calColumns);
         calColumns.appendChild(btns);
 
         if (j === 4) {
-            calColumns.setAttribute("id", `operator${i}`);
+            calColumns.setAttribute("class", "operator");
         };
         if (i > 1 && i < 5 && j < 4) {
-            calColumns.setAttribute("id", "number");
+            calColumns.setAttribute("class", "number");
         };
         if (i === 1 && j < 4) {
-            calColumns.setAttribute("id", "ac");
+            calColumns.setAttribute("class", "ac");
         };
 
         if (i === 5) {
             if (j === 1) {
-                calColumns.setAttribute("id", "number");
+                calColumns.setAttribute("class", "number");
             }
             else if (j === 2) {
-                calColumns.setAttribute("id", "float");
+                calColumns.setAttribute("class", "float");
             }
             else if (j === 3) {
-                calColumns.setAttribute("id", `operator${i+1}`); 
+                calColumns.setAttribute("class", "operator"); 
             }
         };
+        }   
     };
-};
 
+const allClear = document.querySelectorAll(".ac");
+const btnRowFive = document.querySelectorAll(".btn-row-5 > .operator");
 
+allClear[0].remove();
+allClear[1].remove();
+btnRowFive[0].remove();
 
 
 let num1;

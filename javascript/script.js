@@ -8,9 +8,12 @@ body.appendChild(display);
 for (let i = 1; i <= 5; i++ ) {
     const calRows = document.createElement("div");
     body.appendChild(calRows);
+    calRows.classList.toggle(`btnRow${i}`)
+
     for (let j = 1; j <= 4; j++) {
         const calColumns = document.createElement("div");
         const btns = document.createElement("button");
+        calColumns.classList.toggle(`btnColumn${j}`)
         calRows.appendChild(calColumns);
         calColumns.appendChild(btns);
     }

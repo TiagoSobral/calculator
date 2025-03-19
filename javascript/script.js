@@ -18,7 +18,7 @@ for (let i = 1; i <= 5; i++ ) {
         calColumns.appendChild(btns);
 
         if (j === 4) {
-            calColumns.setAttribute("id", "operator");
+            calColumns.setAttribute("id", `operator${i}`);
         };
         if (i > 1 && i < 5 && j < 4) {
             calColumns.setAttribute("id", "number");
@@ -35,11 +35,13 @@ for (let i = 1; i <= 5; i++ ) {
                 calColumns.setAttribute("id", "float");
             }
             else if (j === 3) {
-                calColumns.setAttribute("id", "operator"); 
+                calColumns.setAttribute("id", `operator${i+1}`); 
             }
         };
     };
 };
+
+
 
 
 let num1;

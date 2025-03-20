@@ -49,6 +49,10 @@ allClear[0].remove();
 allClear[1].remove();
 btnRowFive[0].remove();
 
+for (let i = 9; i >= 0; i--) {
+    btnNumber[i].textContent = `${i}`; 
+}
+
 
 const btnAC = document.querySelector(".ac > button");
 const btnDivide = document.querySelector(".btn-row-1 > .operator > button");

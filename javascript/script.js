@@ -49,7 +49,9 @@ allClear[0].remove();
 allClear[1].remove();
 btnOpFive.remove();
 
-const btnNumber = document.querySelectorAll(".number");
+const divNumber = document.querySelectorAll(".number");
+const divOperator = document.querySelectorAll(".operator");
+const divBtnRow = document.querySelectorAll(".btn-row");
 const btnAC = document.querySelector(".ac > button");
 const btnDivide = document.querySelector("#op-1 > button");
 const btnMultiply = document.querySelector("#op-2> button");
@@ -57,6 +59,7 @@ const btnSubtract = document.querySelector("#op-3> button");
 const btnAddition = document.querySelector("#op-4> button");
 const btnFloat = document.querySelector(".float > button");
 const btnEqual = document.querySelector("#op-5> button");
+const btnNumber = document.querySelectorAll(".number > button");
 
 btnAC.textContent = "AC";
 btnDivide.textContent = "÷"
@@ -67,17 +70,10 @@ btnEqual.textContent = "=";
 btnFloat.textContent = ",";
 
 
-for (let i = 9; i >= 0; i--) {
-    btnNumber[i].setAttribute("id", `n-${i}`); 
+for (let i = divNumber.length -1; i >= 0; i--) {
+    divNumber[i].setAttribute("id", `n-${i}`);
+    btnNumber[i].textContent = `${i}`;
 };
-
-let btnNumberArray = Array.from(btnNumber).sort((a, b) => b.id - a.id);
-
-for (let i = 0; i < btnNumberArray.length; i++) {
-
-};
-
-
 
 let num1;
 let num2;

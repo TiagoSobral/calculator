@@ -36,21 +36,27 @@ button {
     height: 60px;
     border-radius: 30px;
     border-width: 0px;
+    font-family: Helvetica, sans-serif;
+    font-size: 25px;
+    color: white;
 }
 
 .operator > button
 {
     background-color: #FF9500;
+    font-size: 35px;
+    font-weight: lighter;
+    padding-bottom: 5px;
 }
 
 .float > button, 
 .number > button {
-    background-color: #505050;
+    background-color: #1C1C1C;
 }
 
 .ac > button {
     width: 190px;
-    background-color: #D4D4D2;
+    background-color: #505050;
 }
 
 .btn-row-5 > .operator > button {

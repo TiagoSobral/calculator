@@ -50,7 +50,7 @@ allClear[1].remove();
 btnRowFive[0].remove();
 
 for (let i = 9; i >= 0; i--) {
-    btnNumber[i].textContent = `${i}`; 
+    btnNumber[i].setAttribute("id", `${i}`); 
 }
 
 

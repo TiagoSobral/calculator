@@ -6,11 +6,18 @@ body{
 }
 
 .display {
-    width: 265px;
-    height: 80px;
+    width: 235px;
+    height: 70px;
     border: solid, rgb(255, 255, 255);
     border-radius: 10px;
     margin-bottom: 10px;
+    padding: 10px;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-size: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .number, 

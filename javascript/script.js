@@ -44,17 +44,12 @@ for (let i = 1; i <= 5; i++ ) {
 
 const allClear = document.querySelectorAll(".ac");
 const btnOpFive = document.querySelector("#op-5");
-const btnNumber = document.querySelectorAll(".number");
 
 allClear[0].remove();
 allClear[1].remove();
 btnOpFive.remove();
 
-for (let i = 9; i >= 0; i--) {
-    btnNumber[i].setAttribute("id", `n-${i}`); 
-};
-
-
+const btnNumber = document.querySelectorAll(".number");
 const btnAC = document.querySelector(".ac > button");
 const btnDivide = document.querySelector("#op-1 > button");
 const btnMultiply = document.querySelector("#op-2> button");
@@ -63,7 +58,6 @@ const btnAddition = document.querySelector("#op-4> button");
 const btnFloat = document.querySelector(".float > button");
 const btnEqual = document.querySelector("#op-5> button");
 
-
 btnAC.textContent = "AC";
 btnDivide.textContent = "÷"
 btnMultiply.textContent = "x"
@@ -71,6 +65,19 @@ btnSubtract.textContent = "-"
 btnAddition.textContent = "+"
 btnEqual.textContent = "=";
 btnFloat.textContent = ",";
+
+
+for (let i = 9; i >= 0; i--) {
+    btnNumber[i].setAttribute("id", `n-${i}`); 
+};
+
+// let btnNumberArray = Array.from(btnNumber).sort((a, b) => b.id - a.id);
+
+// for (let i = 0; i < btnNumberArray.length; i++) {
+
+// };
+
+
 
 let num1;
 let num2;

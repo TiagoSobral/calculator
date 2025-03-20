@@ -42,11 +42,30 @@ for (let i = 1; i <= 5; i++ ) {
 
 const allClear = document.querySelectorAll(".ac");
 const btnRowFive = document.querySelectorAll(".btn-row-5 > .operator");
+const btnNumber = document.querySelectorAll(".number > button");
+
 
 allClear[0].remove();
 allClear[1].remove();
 btnRowFive[0].remove();
 
+
+const btnAC = document.querySelector(".ac > button");
+const btnDivide = document.querySelector(".btn-row-1 > .operator > button");
+const btnMultiply = document.querySelector(".btn-row-2 > .operator > button");
+const btnSubtract = document.querySelector(".btn-row-3 > .operator > button");
+const btnAddition = document.querySelector(".btn-row-4 > .operator > button");
+const btnFloat = document.querySelector(".float > button");
+const btnEqual = document.querySelector(".btn-row-5 > .operator > button");
+
+
+btnAC.textContent = "AC";
+btnDivide.textContent = "÷"
+btnMultiply.textContent = "x"
+btnSubtract.textContent = "-"
+btnAddition.textContent = "+"
+btnEqual.textContent = "=";
+btnFloat.textContent = ",";
 
 let num1;
 let num2;

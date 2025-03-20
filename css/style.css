@@ -23,11 +23,7 @@ body{
     height: 50;
 }
 
-.btn-row-1, 
-.btn-row-2, 
-.btn-row-3, 
-.btn-row-4, 
-.btn-row-5 {
+.btn-row {
     display: flex;
 }
 
@@ -59,7 +55,7 @@ button {
     background-color: #505050;
 }
 
-.btn-row-5 > .operator > button {
+#op-5 > button {
     width: 130px;
 }
 

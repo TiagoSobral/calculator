@@ -8,7 +8,7 @@ body.appendChild(display);
 for (let i = 1; i <= 5; i++ ) {
     const calRows = document.createElement("div");
     body.appendChild(calRows);
-    calRows.classList.toggle(`btn-row-${i}`)
+    calRows.classList.toggle(`btn-row`)
 
     for (let j = 1; j <= 4; j++) {
         const calColumns = document.createElement("div");
@@ -71,11 +71,11 @@ for (let i = 9; i >= 0; i--) {
     btnNumber[i].setAttribute("id", `n-${i}`); 
 };
 
-// let btnNumberArray = Array.from(btnNumber).sort((a, b) => b.id - a.id);
+let btnNumberArray = Array.from(btnNumber).sort((a, b) => b.id - a.id);
 
-// for (let i = 0; i < btnNumberArray.length; i++) {
+for (let i = 0; i < btnNumberArray.length; i++) {
 
-// };
+};
 
 
 

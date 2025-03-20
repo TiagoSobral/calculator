@@ -18,6 +18,7 @@ for (let i = 1; i <= 5; i++ ) {
 
         if (j === 4) {
             calColumns.setAttribute("class", "operator");
+            calColumns.setAttribute("id", `op-${i}`);
         };
         if (i > 1 && i < 5 && j < 4) {
             calColumns.setAttribute("class", "number");
@@ -34,33 +35,33 @@ for (let i = 1; i <= 5; i++ ) {
                 calColumns.setAttribute("class", "float");
             }
             else if (j === 3) {
-                calColumns.setAttribute("class", "operator"); 
+                calColumns.setAttribute("class", "operator");
+                calColumns.setAttribute("id", `op-${i}`);
             }
         };
         }   
     };
 
 const allClear = document.querySelectorAll(".ac");
-const btnRowFive = document.querySelectorAll(".btn-row-5 > .operator");
-const btnNumber = document.querySelectorAll(".number > button");
-
+const btnOpFive = document.querySelector("#op-5");
+const btnNumber = document.querySelectorAll(".number");
 
 allClear[0].remove();
 allClear[1].remove();
-btnRowFive[0].remove();
+btnOpFive.remove();
 
 for (let i = 9; i >= 0; i--) {
-    btnNumber[i].setAttribute("id", `${i}`); 
-}
+    btnNumber[i].setAttribute("id", `n-${i}`); 
+};
 
 
 const btnAC = document.querySelector(".ac > button");
-const btnDivide = document.querySelector(".btn-row-1 > .operator > button");
-const btnMultiply = document.querySelector(".btn-row-2 > .operator > button");
-const btnSubtract = document.querySelector(".btn-row-3 > .operator > button");
-const btnAddition = document.querySelector(".btn-row-4 > .operator > button");
+const btnDivide = document.querySelector("#op-1 > button");
+const btnMultiply = document.querySelector("#op-2> button");
+const btnSubtract = document.querySelector("#op-3> button");
+const btnAddition = document.querySelector("#op-4> button");
 const btnFloat = document.querySelector(".float > button");
-const btnEqual = document.querySelector(".btn-row-5 > .operator > button");
+const btnEqual = document.querySelector("#op-5> button");
 
 
 btnAC.textContent = "AC";

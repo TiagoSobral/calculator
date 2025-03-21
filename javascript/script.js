@@ -121,6 +121,24 @@ btnNumber.forEach((button) => {
     })
 });
 
+divOperator.forEach((button) => {
+    button.addEventListener("click", () => { 
+        operator = button.textContent
+        }
+    )
+});
+
+btnAC.addEventListener("click", () => {
+    num1 = "";
+    num2 = "";
+    operator = "";
+    return display.textContent = "0"
+});
+
+btnEqual.addEventListener("click", () => {
+    let result = operate(num1, operator, num2);
+    return display.textContent = result;
+})
 
 
 

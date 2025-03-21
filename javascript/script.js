@@ -49,6 +49,7 @@ allClear[0].remove();
 allClear[1].remove();
 btnOpFive.remove();
 
+const displayContent = document.querySelector(".display");
 const divNumber = document.querySelectorAll(".number");
 const divOperator = document.querySelectorAll(".operator");
 const divBtnRow = document.querySelectorAll(".btn-row");
@@ -61,6 +62,7 @@ const btnFloat = document.querySelector(".float > button");
 const btnEqual = document.querySelector("#op-5> button");
 const btnNumber = document.querySelectorAll(".number > button");
 
+display.textContent = "0";
 btnAC.textContent = "AC";
 btnDivide.textContent = "÷"
 btnMultiply.textContent = "x"
@@ -75,9 +77,9 @@ for (let i = divNumber.length -1; i >= 0; i--) {
     btnNumber[i].textContent = `${i}`;
 };
 
-let num1;
-let num2;
-let operator;
+let num1 = "";
+let num2 = "";
+let operator = "";
 
 function add(a, b) {
     return a + b;
@@ -95,7 +97,7 @@ function divide(a, b) {
     return a / b;
 };
 
-function operate(number1, number2, operation) {
+function operate(number1, operation, number2) {
     if (operation === "+") {
         return add(number1, number2);
     }
@@ -105,8 +107,32 @@ function operate(number1, number2, operation) {
     else if (operation === "*") {
         return multiply(number1, number2);
     }
-    else {
+    else if (operation === "÷"){
         return divide(number1, number2);
     }
 };
+
+
+
+btnNumber.forEach((button) => {
+    button.addEventListener("click", () => {
+        num1 += button.textContent
+        return display.textContent = num1
+    })
+});
+
+
+
+
+/*PSEUDOCODE:
+
+1S STEP: IF NUMBER CLICKED NOT 0 SUBSTITUTE 0 FOR NUMBER CLICKED. NUMBER IS STORED IN VARIABLE NUM1
+
+2ND STEP: ADD POSSIBILITY TO KEEP ADDING NUMBERS UNTIL OPERATOR BUTTON IS CLICKED.
+
+3RD STEP: ONCE OPERATOR BUTTON IS CLICKED, SIGN IS STORED IN OPERATOR VARIABLE & NUMBER STARTS BEING STORED IN NUM2 VARIABLE.
+
+4TH STEP: ONCE EQUAL BTN IS CLICKED THE OPERATION IS DONE AND THE RESULT SHOWS IN THE DISPLAY.
+
+*/
 

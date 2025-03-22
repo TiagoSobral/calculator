@@ -131,9 +131,11 @@ allBtns.forEach((button) => {
             return display.textContent = "0"
         }
         else if (button.textContent === "=") {
-            numbersFromDisplay = displayValue.split(`${operator}`)
-            num1 = Number(numbersFromDisplay[0]);
-            num2 = Number(numbersFromDisplay[1]);
+            numbersFromDisplay = displayValue
+            .split(`${operator}`)
+            .map((element) => Number(element));
+            num1 = numbersFromDisplay[0];
+            num2 = numbersFromDisplay[1];
             return display.textContent = operate(num1, operator, num2);
         }
         else {

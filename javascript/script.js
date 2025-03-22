@@ -112,33 +112,56 @@ function operate(number1, operation, number2) {
     }
 };
 
+const allBtns = document.querySelectorAll("button");
 
-
-btnNumber.forEach((button) => {
+allBtns.forEach((button) => {
     button.addEventListener("click", () => {
-        num1 += button.textContent
-        return display.textContent = num1
+        if (!isNaN(button.textContent)) {
+            num1 += button.textContent
+            return display.textContent = num1
+        }
+        else if (button.textContent === "AC") {
+            num1 = "";
+            num2 = "";
+            operator = "";
+            return display.textContent = "0"
+        }
+        else if (button.textContent === "=") {
+            let result = operate(num1, operator, num2);
+            return display.textContent = result;
+        }
+        else {
+            operator = button.textContent;
+            }
     })
 });
 
-divOperator.forEach((button) => {
-    button.addEventListener("click", () => { 
-        operator = button.textContent
-        }
-    )
-});
 
-btnAC.addEventListener("click", () => {
-    num1 = "";
-    num2 = "";
-    operator = "";
-    return display.textContent = "0"
-});
+// btnNumber.forEach((button) => {
+//     button.addEventListener("click", () => {
+//         num1 += button.textContent
+//         return display.textContent = num1
+//     })
+// });
 
-btnEqual.addEventListener("click", () => {
-    let result = operate(num1, operator, num2);
-    return display.textContent = result;
-})
+// divOperator.forEach((button) => {
+//     button.addEventListener("click", () => { 
+//         operator = button.textContent
+//         }
+//     )
+// });
+
+// btnAC.addEventListener("click", () => {
+//     num1 = "";
+//     num2 = "";
+//     operator = "";
+//     return display.textContent = "0"
+// });
+
+// btnEqual.addEventListener("click", () => {
+//     let result = operate(num1, operator, num2);
+//     return display.textContent = result;
+// })
 
 
 

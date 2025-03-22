@@ -80,6 +80,7 @@ for (let i = divNumber.length -1; i >= 0; i--) {
 let num1 = "";
 let num2 = "";
 let operator = "";
+let displayValue = "";
 
 function add(a, b) {
     return a + b;
@@ -98,6 +99,7 @@ function divide(a, b) {
 };
 
 function operate(number1, operation, number2) {
+    let result = "";
     if (operation === "+") {
         return add(number1, number2);
     }
@@ -110,6 +112,7 @@ function operate(number1, operation, number2) {
     else if (operation === "÷"){
         return divide(number1, number2);
     }
+    return result;
 };
 
 const allBtns = document.querySelectorAll("button");
@@ -117,21 +120,26 @@ const allBtns = document.querySelectorAll("button");
 allBtns.forEach((button) => {
     button.addEventListener("click", () => {
         if (!isNaN(button.textContent)) {
-            num1 += button.textContent
-            return display.textContent = num1
+            displayValue += button.textContent;
+            return display.textContent = displayValue;
         }
         else if (button.textContent === "AC") {
             num1 = "";
             num2 = "";
+            displayValue = "";
             operator = "";
             return display.textContent = "0"
         }
         else if (button.textContent === "=") {
-            let result = operate(num1, operator, num2);
-            return display.textContent = result;
+            numbersFromDisplay = displayValue.split(`${operator}`)
+            num1 = Number(numbersFromDisplay[0]);
+            num2 = Number(numbersFromDisplay[1]);
+            return display.textContent = operate(num1, operator, num2);
         }
         else {
             operator = button.textContent;
+            displayValue += operator;
+            return display.textContent = displayValue;
             }
     })
 });

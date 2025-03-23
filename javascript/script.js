@@ -136,6 +136,7 @@ allBtns.forEach((button) => {
             num2 = "";
             displayValue = "";
             operator = "";
+            topDisplay.textContent = "";
             return bottomDisplay.textContent = "0"
         }
         else if (button.textContent === "=") {

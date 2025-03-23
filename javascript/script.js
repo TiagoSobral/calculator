@@ -129,27 +129,28 @@ allBtns.forEach((button) => {
     button.addEventListener("click", () => {
         if (!isNaN(button.textContent) || button.textContent === ".") {
             displayValue += button.textContent;
-            return display.textContent = displayValue;
+            return bottomDisplay.textContent = displayValue;
         }
         else if (button.textContent === "AC") {
             num1 = "";
             num2 = "";
             displayValue = "";
             operator = "";
-            return display.textContent = "0"
+            return bottomDisplay.textContent = "0"
         }
         else if (button.textContent === "=") {
+            topDisplay.textContent = displayValue;
             numbersFromDisplay = displayValue
             .split(`${operator}`)
             .map((item) => Number(item));
             num1 = numbersFromDisplay[0];
             num2 = numbersFromDisplay[1];
-            return display.textContent = operate(num1, operator, num2);
+            return bottomDisplay.textContent = operate(num1, operator, num2);
         }
         else {
             operator = button.textContent;
             displayValue += operator;
-            return display.textContent = displayValue;
+            return bottomDisplay.textContent = displayValue;
             }
     })
 });

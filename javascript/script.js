@@ -1,9 +1,16 @@
 const body = document.querySelector("body");
 const display = document.createElement("div");
+const topDisplay = document.createElement("div");
+const bottomDisplay = document.createElement("div");
 
-display.classList.toggle("display")
+display.classList.toggle("display");
+topDisplay.classList.toggle("topDisplay");
+bottomDisplay.classList.toggle("bottomDisplay");
 
+display.appendChild(topDisplay);
+display.appendChild(bottomDisplay);
 body.appendChild(display);
+
 
 for (let i = 1; i <= 5; i++ ) {
     const calRows = document.createElement("div");
@@ -62,7 +69,8 @@ const btnFloat = document.querySelector(".float > button");
 const btnEqual = document.querySelector("#op-5> button");
 const btnNumber = document.querySelectorAll(".number > button");
 
-display.textContent = "0";
+topDisplay.textContent = "";
+bottomDisplay.textContent = "0";
 btnAC.textContent = "AC";
 btnDivide.textContent = "÷"
 btnMultiply.textContent = "*"

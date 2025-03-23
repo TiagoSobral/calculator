@@ -65,11 +65,11 @@ const btnNumber = document.querySelectorAll(".number > button");
 display.textContent = "0";
 btnAC.textContent = "AC";
 btnDivide.textContent = "÷"
-btnMultiply.textContent = "x"
+btnMultiply.textContent = "*"
 btnSubtract.textContent = "-"
 btnAddition.textContent = "+"
 btnEqual.textContent = "=";
-btnFloat.textContent = ",";
+btnFloat.textContent = ".";
 
 
 for (let i = divNumber.length -1; i >= 0; i--) {
@@ -119,7 +119,7 @@ const allBtns = document.querySelectorAll("button");
 
 allBtns.forEach((button) => {
     button.addEventListener("click", () => {
-        if (!isNaN(button.textContent)) {
+        if (!isNaN(button.textContent) || button.textContent === ".") {
             displayValue += button.textContent;
             return display.textContent = displayValue;
         }
@@ -133,7 +133,7 @@ allBtns.forEach((button) => {
         else if (button.textContent === "=") {
             numbersFromDisplay = displayValue
             .split(`${operator}`)
-            .map((element) => Number(element));
+            .map((item) => Number(item));
             num1 = numbersFromDisplay[0];
             num2 = numbersFromDisplay[1];
             return display.textContent = operate(num1, operator, num2);

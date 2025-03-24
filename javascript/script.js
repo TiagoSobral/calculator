@@ -123,36 +123,56 @@ function operate(number1, operation, number2) {
     return result;
 };
 
+function populateDisplay(value) {
+    displayValue += value.textContent;
+    return bottomDisplay.textContent = displayValue;
+}
+
+function getResult() {
+    topDisplay.textContent = displayValue;
+    numbersFromDisplay = displayValue
+    .split(`${operator}`)
+    .map((item) => Number(item));
+    num1 = numbersFromDisplay[0];
+    num2 = numbersFromDisplay[1];
+    displayValue = operate(num1, operator, num2);
+    operator = "";
+    return bottomDisplay.textContent = displayValue;
+};
+
+function clearDisplay() {
+    num1 = "";
+    num2 = "";
+    displayValue = "";
+    operator = "";
+    topDisplay.textContent = "";
+    return bottomDisplay.textContent = "0"
+};
+
 const allBtns = document.querySelectorAll("button");
 
 allBtns.forEach((button) => {
     button.addEventListener("click", () => {
         if (!isNaN(button.textContent) || button.textContent === ".") {
-            displayValue += button.textContent;
-            return bottomDisplay.textContent = displayValue;
+            return populateDisplay(button);
         }
         else if (button.textContent === "AC") {
-            num1 = "";
-            num2 = "";
-            displayValue = "";
-            operator = "";
-            topDisplay.textContent = "";
-            return bottomDisplay.textContent = "0"
+           return clearDisplay();
         }
         else if (button.textContent === "=") {
-            topDisplay.textContent = displayValue;
-            numbersFromDisplay = displayValue
-            .split(`${operator}`)
-            .map((item) => Number(item));
-            num1 = numbersFromDisplay[0];
-            num2 = numbersFromDisplay[1];
-            return bottomDisplay.textContent = operate(num1, operator, num2);
+            return getResult();
         }
         else {
-            operator = button.textContent;
-            displayValue += operator;
-            return bottomDisplay.textContent = displayValue;
+            if (operator === "") {
+                operator = button.textContent;
+                return populateDisplay(button);
             }
+            else {
+                getResult();
+                operator = button.textContent;
+                return populateDisplay(button);
+            }
+        }
     })
 });
 
@@ -194,6 +214,8 @@ allBtns.forEach((button) => {
 3RD STEP: ONCE OPERATOR BUTTON IS CLICKED, SIGN IS STORED IN OPERATOR VARIABLE & NUMBER STARTS BEING STORED IN NUM2 VARIABLE.
 
 4TH STEP: ONCE EQUAL BTN IS CLICKED THE OPERATION IS DONE AND THE RESULT SHOWS IN THE DISPLAY.
+
+IF OPERATOR IS UNDEFINED CALCULATE THE SAME WAY AS EQUAL DOES.
 
 */
 

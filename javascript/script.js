@@ -130,12 +130,10 @@ function populateDisplay(value) {
 
 function getResult() {
     topDisplay.textContent = displayValue;
-    numbersFromDisplay = displayValue
-    .split(`${operator}`)
-    .map((item) => Number(item));
+    numbersFromDisplay = displayValue.split(`${operator}`).map((item) => Number(item));
     num1 = numbersFromDisplay[0];
     num2 = numbersFromDisplay[1];
-    displayValue = operate(num1, operator, num2);
+    displayValue = Math.round(operate(num1, operator, num2) * 1000)/ 1000;
     operator = "";
     return bottomDisplay.textContent = displayValue;
 };

@@ -160,7 +160,12 @@ allBtns.forEach((button) => {
         else if (button.textContent === "=") {
             let arrayFromDisplay = displayValue.split(`${operator}`);
             if (arrayFromDisplay[1]) {
+                if (operator === "÷" && arrayFromDisplay[1] === "0") {
+                    return bottomDisplay.textContent = "Error";
+                }
+                else {
                 return getResult();
+                }
             }
             
         }

@@ -130,9 +130,9 @@ function populateDisplay(value) {
 
 function getResult() {
     topDisplay.textContent = displayValue;
-    numbersFromDisplay = displayValue.split(`${operator}`).map((item) => Number(item));
-    num1 = numbersFromDisplay[0];
-    num2 = numbersFromDisplay[1];
+    arrayNumFromDisplay = displayValue.split(`${operator}`).map((item) => Number(item));
+    num1 = arrayNumFromDisplay[0];
+    num2 = arrayNumFromDisplay[1];
     displayValue = Math.round(operate(num1, operator, num2) * 1000)/ 1000;
     operator = "";
     return bottomDisplay.textContent = displayValue;
@@ -158,7 +158,11 @@ allBtns.forEach((button) => {
            return clearDisplay();
         }
         else if (button.textContent === "=") {
-            return getResult();
+            let arrayFromDisplay = displayValue.split(`${operator}`);
+            if (arrayFromDisplay[1]) {
+                return getResult();
+            }
+            
         }
         else {
             if (operator === "") {

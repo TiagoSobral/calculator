@@ -152,6 +152,9 @@ const allBtns = document.querySelectorAll("button");
 allBtns.forEach((button) => {
     button.addEventListener("click", () => {
         if (!isNaN(button.textContent) || button.textContent === ".") {
+            if (num2) {
+                clearDisplay();
+            }
             return populateDisplay(button);
         }
         else if (button.textContent === "AC") {
@@ -166,8 +169,7 @@ allBtns.forEach((button) => {
                 else {
                 return getResult();
                 }
-            }
-            
+            }  
         }
         else {
             if (operator === "") {

@@ -126,7 +126,7 @@ function operate(number1, operation, number2) {
 function populateDisplay(value) {
     displayValue += value.textContent;
     return bottomDisplay.textContent = displayValue;
-}
+};
 
 function getResult() {
     topDisplay.textContent = displayValue;
@@ -147,6 +147,11 @@ function clearDisplay() {
     return bottomDisplay.textContent = "0"
 };
 
+let arrayFromDisplay = function(num) {
+    let array = displayValue.split(`${operator}`);
+    return array[num] ;
+};
+
 const allBtns = document.querySelectorAll("button");
 
 allBtns.forEach((button) => {
@@ -158,7 +163,8 @@ allBtns.forEach((button) => {
             return populateDisplay(button);
         }
         else if (button.textContent === ".") {
-            if (!displayValue.includes(".") || operator && !displayValue.includes(".")) {
+            if (!displayValue.includes(".") && !operator 
+            || operator && !arrayFromDisplay(1).includes(".")) {
                 return populateDisplay(button);
             }
         }
@@ -166,9 +172,8 @@ allBtns.forEach((button) => {
            return clearDisplay();
         }
         else if (button.textContent === "=") {
-            let arrayFromDisplay = displayValue.split(`${operator}`);
-            if (arrayFromDisplay[1]) {
-                if (operator === "÷" && arrayFromDisplay[1] === "0") {
+            if (arrayFromDisplay(1)) {
+                if (operator === "÷" && arrayFromDisplay(1) === "0") {
                     return bottomDisplay.textContent = "Error";
                 }
                 else {

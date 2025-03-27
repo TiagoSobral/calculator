@@ -160,6 +160,7 @@ allBtns.forEach((button) => {
             if (num2) {
                 clearDisplay();
             }
+            btnAC.textContent = "c";
             return populateDisplay(button);
         }
         else if (button.textContent === ".") {
@@ -170,6 +171,10 @@ allBtns.forEach((button) => {
         }
         else if (button.textContent === "AC") {
            return clearDisplay();
+        }
+        else if (button.textContent === "c") {
+            displayValue = displayValue.slice(0,-1);
+            return bottomDisplay.textContent = displayValue;
         }
         else if (button.textContent === "=") {
             if (arrayFromDisplay(1)) {

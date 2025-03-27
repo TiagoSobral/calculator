@@ -53,6 +53,11 @@ button {
     color: white;
 }
 
+button:active {
+    filter: brightness(150%);
+    filter: saturate(50%);
+}
+
 .operator > button
 {
     background-color: #FF9500;
@@ -63,7 +68,7 @@ button {
 
 .float > button, 
 .number > button {
-    background-color: #1C1C1C;
+    background-color: #1c1c1c;
 }
 
 .ac > button {

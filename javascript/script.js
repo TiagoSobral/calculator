@@ -89,6 +89,7 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let displayValue = "";
+let numerical = "0123456789";
 
 function add(a, b) {
     return a + b;
@@ -130,9 +131,9 @@ function populateDisplay(value) {
 
 function getResult() {
     topDisplay.textContent = displayValue;
-    arrayNumFromDisplay = displayValue.split(`${operator}`).map((item) => Number(item));
-    num1 = arrayNumFromDisplay[0];
-    num2 = arrayNumFromDisplay[1];
+    let arrayOfNum = displayValue.split(`${operator}`).map((item) => Number(item));
+    num1 = arrayOfNum[0];
+    num2 = arrayOfNum[1];
     displayValue = Math.round(operate(num1, operator, num2) * 1000)/ 1000;
     operator = "";
     return bottomDisplay.textContent = displayValue;
@@ -152,102 +153,101 @@ let arrayFromDisplay = function(num) {
     return array[num] ;
 };
 
+function calculate(button) {
+    if (!isNaN(button.textContent)) {
+        if (num2) {
+            clearDisplay();
+        }
+        btnAC.textContent = "C";
+        return populateDisplay(button);
+    }
+    else if (button.textContent === ".") {
+        if (!displayValue.includes(".") && !operator 
+        || operator && !arrayFromDisplay(1).includes(".")) {
+            return populateDisplay(button);
+        }
+    }
+    else if (button.textContent === "AC") {
+       return clearDisplay();
+    }
+    else if (button.textContent === "C") {
+       if (displayValue.length <= 1) {
+        clearDisplay();
+        return btnAC.textContent = "AC";
+       }
+       else {
+        displayValue = displayValue.slice(0,-1);
+        return bottomDisplay.textContent = displayValue;
+       }
+    }
+    else if (button.textContent === "=") {
+        btnAC.textContent = "AC";
+        if (arrayFromDisplay(1)) {
+            if (operator === "÷" && arrayFromDisplay(1) === "0") {
+                return bottomDisplay.textContent = "Error";
+            }
+            else {
+            return getResult();
+            }
+        }
+    }
+    else {
+        if (operator === "") {
+            operator = button.textContent;
+            return populateDisplay(button);
+        }
+        else {
+            getResult();
+            operator = button.textContent;
+            return populateDisplay(button);
+        }
+    }
+};
+
 const allBtns = document.querySelectorAll("button");
+
+
 
 allBtns.forEach((button) => {
     button.addEventListener("click", () => {
-        if (!isNaN(button.textContent)) {
-            if (num2) {
-                clearDisplay();
-            }
-            btnAC.textContent = "C";
-            return populateDisplay(button);
-        }
-        else if (button.textContent === ".") {
-            if (!displayValue.includes(".") && !operator 
-            || operator && !arrayFromDisplay(1).includes(".")) {
-                return populateDisplay(button);
-            }
-        }
-        else if (button.textContent === "AC") {
-           return clearDisplay();
-        }
-        else if (button.textContent === "C") {
-           if (displayValue.length <= 1) {
-            clearDisplay();
-            return btnAC.textContent = "AC";
-           }
-           else {
-            displayValue = displayValue.slice(0,-1);
-            return bottomDisplay.textContent = displayValue;
-           }
-        }
-        else if (button.textContent === "=") {
-            btnAC.textContent = "AC";
-            if (arrayFromDisplay(1)) {
-                if (operator === "÷" && arrayFromDisplay(1) === "0") {
-                    return bottomDisplay.textContent = "Error";
-                }
-                else {
-                return getResult();
-                }
-            }
-        }
-        else {
-            if (operator === "") {
-                operator = button.textContent;
-                return populateDisplay(button);
-            }
-            else {
-                getResult();
-                operator = button.textContent;
-                return populateDisplay(button);
-            }
-        }
-    })
+        calculate(button);
+})
 });
 
+document.addEventListener("keydown", (e) => { 
+    if (e.key === "Escape") {
+        btnAC.click();
+    }
+    else if (e.key === "=") {
+        btnEqual.click();
+    }
+    else if (e.key === "+") {
+        btnAddition.click();
+    }
+    else if (e.key === "-") {
+        btnSubtract.click();
+    }
+    else if (e.key === "*") {
+        btnMultiply.click();
+    }
+    else if (e.key === "÷") {
+        btnDivide.click();
+    }
+    else if (e.key === ".") {
+        btnFloat.click();
+    }
+    else if (e.key === "Backspace") {
+        btnAC.click();
+    }
+    else if (Number(e.key) || e.key === "0") {
+        for (button of btnNumber) {
+            if (e.key === button.textContent) {
+               return button.click();
+            }
+        }
+    }
 
+    
+})
 
-// btnNumber.forEach((button) => {
-//     button.addEventListener("click", () => {
-//         num1 += button.textContent
-//         return display.textContent = num1
-//     })
-// });
-
-// divOperator.forEach((button) => {
-//     button.addEventListener("click", () => { 
-//         operator = button.textContent
-//         }
-//     )
-// });
-
-// btnAC.addEventListener("click", () => {
-//     num1 = "";
-//     num2 = "";
-//     operator = "";
-//     return display.textContent = "0"
-// });
-
-// btnEqual.addEventListener("click", () => {
-//     let result = operate(num1, operator, num2);
-//     return display.textContent = result;
-// })
-
-
-
-/*PSEUDOCODE:
-
-1S STEP: IF NUMBER CLICKED NOT 0 SUBSTITUTE 0 FOR NUMBER CLICKED. NUMBER IS STORED IN VARIABLE NUM1
-
-2ND STEP: ADD POSSIBILITY TO KEEP ADDING NUMBERS UNTIL OPERATOR BUTTON IS CLICKED.
-
-3RD STEP: ONCE OPERATOR BUTTON IS CLICKED, SIGN IS STORED IN OPERATOR VARIABLE & NUMBER STARTS BEING STORED IN NUM2 VARIABLE.
-
-4TH STEP: ONCE EQUAL BTN IS CLICKED THE OPERATION IS DONE AND THE RESULT SHOWS IN THE DISPLAY.
-
-IF OPERATOR IS UNDEFINED CALCULATE THE SAME WAY AS EQUAL DOES.
-
-*/
 

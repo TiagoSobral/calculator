@@ -160,7 +160,7 @@ allBtns.forEach((button) => {
             if (num2) {
                 clearDisplay();
             }
-            btnAC.textContent = "c";
+            btnAC.textContent = "C";
             return populateDisplay(button);
         }
         else if (button.textContent === ".") {
@@ -172,11 +172,18 @@ allBtns.forEach((button) => {
         else if (button.textContent === "AC") {
            return clearDisplay();
         }
-        else if (button.textContent === "c") {
+        else if (button.textContent === "C") {
+           if (displayValue.length <= 1) {
+            clearDisplay();
+            return btnAC.textContent = "AC";
+           }
+           else {
             displayValue = displayValue.slice(0,-1);
             return bottomDisplay.textContent = displayValue;
+           }
         }
         else if (button.textContent === "=") {
+            btnAC.textContent = "AC";
             if (arrayFromDisplay(1)) {
                 if (operator === "÷" && arrayFromDisplay(1) === "0") {
                     return bottomDisplay.textContent = "Error";
@@ -184,7 +191,7 @@ allBtns.forEach((button) => {
                 else {
                 return getResult();
                 }
-            }  
+            }
         }
         else {
             if (operator === "") {
@@ -199,6 +206,7 @@ allBtns.forEach((button) => {
         }
     })
 });
+
 
 
 // btnNumber.forEach((button) => {

@@ -1,20 +1,23 @@
 const body = document.querySelector("body");
+const calculator = document.createElement("div");
 const display = document.createElement("div");
 const topDisplay = document.createElement("div");
 const bottomDisplay = document.createElement("div");
 
+calculator.classList.toggle("calculator");
 display.classList.toggle("display");
 topDisplay.classList.toggle("topDisplay");
 bottomDisplay.classList.toggle("bottomDisplay");
 
+body.appendChild(calculator);
 display.appendChild(topDisplay);
 display.appendChild(bottomDisplay);
-body.appendChild(display);
+calculator.appendChild(display);
 
 
 for (let i = 1; i <= 5; i++ ) {
     const calRows = document.createElement("div");
-    body.appendChild(calRows);
+    calculator.appendChild(calRows);
     calRows.classList.toggle(`btn-row`)
 
     for (let j = 1; j <= 4; j++) {
@@ -23,17 +26,16 @@ for (let i = 1; i <= 5; i++ ) {
         calRows.appendChild(calColumns);
         calColumns.appendChild(btns);
 
-        if (j === 4) {
-            calColumns.setAttribute("class", "operator");
-            calColumns.setAttribute("id", `op-${i}`);
+        if (i === 1 && j < 4) {
+            calColumns.setAttribute("class", "ac");
         };
         if (i > 1 && i < 5 && j < 4) {
             calColumns.setAttribute("class", "number");
         };
-        if (i === 1 && j < 4) {
-            calColumns.setAttribute("class", "ac");
+        if (j === 4) {
+            calColumns.setAttribute("class", "operator");
+            calColumns.setAttribute("id", `op-${i}`);
         };
-
         if (i === 5) {
             if (j === 1) {
                 calColumns.setAttribute("class", "number");

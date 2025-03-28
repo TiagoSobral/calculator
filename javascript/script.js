@@ -1,18 +1,23 @@
 const body = document.querySelector("body");
 const calculator = document.createElement("div");
+const footer = document.createElement("div");
 const display = document.createElement("div");
 const topDisplay = document.createElement("div");
 const bottomDisplay = document.createElement("div");
 
 calculator.classList.toggle("calculator");
+footer.classList.toggle("footer");
 display.classList.toggle("display");
 topDisplay.classList.toggle("topDisplay");
 bottomDisplay.classList.toggle("bottomDisplay");
 
+footer.textContent = `Copyright © ${new Date().getFullYear()} TiagoSobral`;
+
 body.appendChild(calculator);
+body.appendChild(footer);
+calculator.appendChild(display);
 display.appendChild(topDisplay);
 display.appendChild(bottomDisplay);
-calculator.appendChild(display);
 
 
 for (let i = 1; i <= 5; i++ ) {

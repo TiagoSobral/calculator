@@ -1,6 +1,7 @@
 body{
     background-color: #131313;
     display: flex;
+    flex-direction: column;
     height: 100vh;
     justify-content: center;
     align-items: center;
@@ -19,6 +20,13 @@ body{
     background-color: #080808;
     border: 3px, solid, #505050;
     border-radius: 15px;
+}
+
+.footer {
+    display: flex;
+    color: wheat;
+    font-family: Helvetica, sans-serif;
+
 }
 
 .display {
